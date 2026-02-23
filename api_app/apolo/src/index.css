@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+
+@layer components{
+    .heading{
+        @apply bg-purple-800 text-white p-6 text-center text-4xl font-black
+    }
+}

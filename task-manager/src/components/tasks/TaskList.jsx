@@ -34,11 +34,19 @@ export function TaskList() {
       <h2 className="text-4xl text-indigo-600 mb-6 font-bold">Tasks</h2>
       <div className="my-5 w-[50%] mx-auto">
         {tasks.map(task => (
-            <ul key={task.id}>
-                <li>
-                    {task.text}
-                </li>
-            </ul>
+          <div key={task.id} className="flex  w-full" >
+                <div className="bg-gray-200 flex w-full my-3 px-5 py-4 rounded-xl ">
+                  <input
+                    type="checkbox"
+                    checked={task.completed}
+                    onChange={() => dispatch(toggleTask(task.id))}
+                    className="w-5 h-5 accent-indigo-600 cursor-pointer align-middle"
+                  />
+                  <span className={`ms-5  text-base font-semibold ${task.completed ? 'line-through text-gray-400' : 'text-gray-700'}`}>{task.text}</span>
+
+                  <button className="ms-auto text-red-700 font-semibold" onClick={() => dispatch(deleteTask(task.id))}>Delete</button>
+                </div>
+            </div>
         ))}
       </div>
     </>
